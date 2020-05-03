@@ -1,0 +1,12 @@
+{
+    "autoDocstring.docstringFormat": "google",
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "80"
+    ],
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.pythonPath": "/usr/local/bin/python",
+    "editor.formatOnSave": true
+}

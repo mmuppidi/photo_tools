@@ -1,0 +1,8 @@
+name: base
+dependencies:
+  - ffmpeg
+  - pip:
+    - black
+    - pylint
+    - pytest
+    - tox
