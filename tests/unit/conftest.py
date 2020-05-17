@@ -42,6 +42,12 @@ def destination_path():
 
 
 @pytest.fixture
+def destination_tar_file():
+    reset_dir(_OUTPUT_PATH)
+    return os.path.join(_OUTPUT_PATH, 'archive.tar.gz')
+
+
+@pytest.fixture
 def input_timelapse_images_path():
     reset_dir(_INPUT_PATH)
 
