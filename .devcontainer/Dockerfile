@@ -23,7 +23,7 @@ ARG USER_GID=$USER_UID
 COPY environment.yaml /opt/environment.yaml
 
 # Configure apt and install packages
-RUN apt-get -qq update && apt-get -qq -y install curl bzip2 \
+RUN apt-get -qq update && apt-get -qq -y install curl bzip2 git \
     && curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh \
     && bash /tmp/miniconda.sh -bfp /usr/local \
     && rm -rf /tmp/miniconda.sh \

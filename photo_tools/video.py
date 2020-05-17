@@ -1,13 +1,21 @@
 """ Module with functions to help with video creation and editing
 """
 
+import logging
 import os
 
 import ffmpeg
 
 
+logger = logging.getLogger(__name__)
+
+
 def create_video_from_frames(
-    sequence_dir: str, output_dir: str, framerate: int, path_suffix: str = None
+    sequence_dir: str,
+    output_dir: str,
+    framerate: int,
+    file_prefix: str = None,
+    file_suffix: str = None,
 ):
     """ Function converts the sequence of frames into a MPEG-4 video this 
     function is a wrapper for the following ffmpeg command
@@ -28,8 +36,10 @@ def create_video_from_frames(
 
     output_path = os.path.join(output_dir, "output.mp4")
 
+    logger.info(f"Output path : {output_path}")
+
     ffmpeg.input(
-        os.path.join(sequence_dir, f"*{path_suffix or ''}"),
+        os.path.join(sequence_dir, f"{file_prefix or ''}*{file_suffix or ''}"),
         pattern_type="glob",
         framerate=framerate,
     ).filter("pad", width="ceil(iw/2)*2", height="ceil(ih/2)*2").output(
