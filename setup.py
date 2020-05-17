@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="photo-tools",
-    version="0.0.0",
+    version="0.0.1",
     packages=find_packages(),
     # scripts=["say_hello.py"],
     install_requires=["click==7.0", "tqdm", "ffmpeg-python==0.2.0"],
